@@ -26,6 +26,7 @@ class CourseName extends StatelessWidget {
             response.interest,
             style: TextStyle(color: Colors.grey),
           ),
+           Container(height: 5,) ,
           Container(
             margin: const EdgeInsets.all(8.0),
             child: RichText(
