@@ -77,32 +77,49 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Expanded(
-                        child: SingleChildScrollView(
-                          child: Column(
-                            children: <Widget>[
-                              Container(
-                                child: SizedBox(
-                                  height: screenSize.height * .3,
+                Stack(
+                         children: [
+                                Container(
+                                  child: SizedBox(
+                                    height: screenSize.height * .3,
+                                    width: double.infinity,
+                                    child: Carousel(
+                                      overlayShadow: true,
+                                      dotSize: 7.0,
+                                      images: [
+                                        Image.network(
+                                          response.img[0],
+                                          fit: BoxFit.fill,
+                                        ),
+                                        Image.network(response.img[1],
+                                            fit: BoxFit.fill),
+                                        Image.network(response.img[2],
+                                            fit: BoxFit.fill),
+                                        Image.network(response.img[3],
+                                            fit: BoxFit.fill),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Container(padding: EdgeInsets.all(8),
                                   width: double.infinity,
-                                  child: Carousel(
-                                    overlayShadow: true,
-                                    dotSize: 7.0,
-                                    images: [
-                                      Image.network(
-                                        response.img[0],
-                                        fit: BoxFit.fill,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: <Widget>[
+                                      Row(
+                                        children: <Widget>[
+                                          Icon(MdiIcons.starBoxOutline , color: Colors.white, size: 30,),
+                                          Container(width: 7,) ,
+                                          Icon(MdiIcons.shareVariant , color: Colors.white, size: 30,),
+                                        ],
                                       ),
-                                      Image.network(response.img[1],
-                                          fit: BoxFit.fill),
-                                      Image.network(response.img[2],
-                                          fit: BoxFit.fill),
-                                      Image.network(response.img[3],
-                                          fit: BoxFit.fill),
+                                      Icon(MdiIcons.arrowRight , color: Colors.white, size: 30,),
                                     ],
                                   ),
                                 ),
-                              ),
+                              ],
+                            ),
                               Divider(
                                 height: 1,
                               ),
